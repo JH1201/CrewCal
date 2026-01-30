@@ -118,11 +118,16 @@ function MonthViewImpl({
                 {more > 0 && (
                   onMorePress ? (
                     <TouchableOpacity onPress={() => onMorePress(d)} activeOpacity={0.85}>
-                      <Text style={styles.moreTxt}>+{more} more</Text>
+                      <Text style={styles.moreTxt} numberOfLines={1} ellipsizeMode="clip">
+                        +{more} more
+                      </Text>
                     </TouchableOpacity>
                   ) : (
-                    <Text style={styles.moreTxt}>+{more} more</Text>
+                    <Text style={styles.moreTxt} numberOfLines={1} ellipsizeMode="clip">
+                      +{more} more
+                    </Text>
                   )
+
                 )}
               </View>
             </TouchableOpacity>
@@ -175,5 +180,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
   },
   pillTxt: { color: colors.pillText, fontWeight: "700", fontSize: 12 },
-  moreTxt: { fontSize: 10, color: colors.muted },
+  moreTxt: { fontSize: 8, color: colors.muted },
 });
