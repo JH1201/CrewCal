@@ -15,13 +15,12 @@ export default function CalendarDrawerContent(props: DrawerContentComponentProps
     <SafeAreaView style={styles.root} edges={["top", "left", "right", "bottom"]}>
       <ScrollView
         contentContainerStyle={{
-          paddingTop: insets.top + 60,   // ✅ 더 여유 있게(짤림 방지)
+          paddingTop: insets.top,   //  더 여유 있게(짤림 방지)
           paddingBottom: insets.bottom + 16,
           paddingHorizontal: 10,
         }}
         showsVerticalScrollIndicator={false}
       >
-        <View style={{ height: 24 }} />
         <TouchableOpacity style={styles.newBtn} onPress={openNewCalendar}>
           <Text style={styles.newTxt}>＋  New Calendar</Text>
         </TouchableOpacity>

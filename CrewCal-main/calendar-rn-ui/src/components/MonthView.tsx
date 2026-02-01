@@ -73,7 +73,7 @@ function MonthViewImpl({
         {days.map((d, idx) => {
           const key = d.toDateString();
           const sameMonth = isSameMonth(d, anchor);
-          const selected = isSameDay(d, selectedDay);
+          const selected = isSameDay(d, new Date());
 
           const dayEvents = eventsByDay.get(key) ?? [];
           const show = dayEvents.slice(0, 1); // fixed height 유지: 1개만 노출
@@ -83,8 +83,8 @@ function MonthViewImpl({
             <TouchableOpacity
               key={idx}
               activeOpacity={0.9}
-              onPress={() => onSelectDay(d)}
-              onLongPress={() => onCreateEventAtDay(d)}
+              onPress={() => onCreateEventAtDay(d)}
+              onLongPress={() => { if (dayEvents.length > 0) onMorePress?.(d); }}
               style={[
                 styles.cell,
                 { width: cellW, height: cellHeight },
@@ -105,7 +105,7 @@ function MonthViewImpl({
                   return (
                     <TouchableOpacity
                       key={ev.id}
-                      onPress={() => onEventPress(ev)}
+                      onPress={(evt) => { evt?.stopPropagation?.(); onEventPress(ev); }}
                       activeOpacity={0.85}
                       style={[styles.pill, { borderLeftColor: cal?.color ?? colors.pillText }]}
                     >
@@ -117,17 +117,12 @@ function MonthViewImpl({
                 })}
                 {more > 0 && (
                   onMorePress ? (
-                    <TouchableOpacity onPress={() => onMorePress(d)} activeOpacity={0.85}>
-                      <Text style={styles.moreTxt} numberOfLines={1} ellipsizeMode="clip">
-                        +{more} more
-                      </Text>
+                    <TouchableOpacity onPress={(evt) => { evt?.stopPropagation?.(); onMorePress(d); }} activeOpacity={0.85}>
+                      <Text style={styles.moreTxt}>+{more} more</Text>
                     </TouchableOpacity>
                   ) : (
-                    <Text style={styles.moreTxt} numberOfLines={1} ellipsizeMode="clip">
-                      +{more} more
-                    </Text>
+                    <Text style={styles.moreTxt}>+{more} more</Text>
                   )
-
                 )}
               </View>
             </TouchableOpacity>
@@ -180,5 +175,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
   },
   pillTxt: { color: colors.pillText, fontWeight: "700", fontSize: 12 },
-  moreTxt: { fontSize: 8, color: colors.muted },
+  moreTxt: { fontSize: 12, color: colors.muted },
 });
