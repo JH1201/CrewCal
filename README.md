@@ -7,7 +7,7 @@
 - 공유 멤버 관리 UI (멤버 목록, 권한 변경, 제거, Pending invite 조회/취소)
 
 ## 구성
-- `frontend/` : React (Vite + TS + Tailwind + React Router)
+- `frontend/` : React Native
 - `backend/` : Spring Boot (Gradle) + Spring Security (JWT) + OAuth2 Google + JdbcTemplate
 - `docker-compose.yml` : PostgreSQL 16
 
@@ -27,11 +27,10 @@ Backend: http://localhost:8080
 
 ### 3) Frontend
 ```bash
-cd frontend
-npm install
-npm run dev
+cd /Crewcal/CrewCal-main/calendar-rn-ui
+npx expo start -c
 ```
-Frontend: http://localhost:5173
+Frontend: http://localhost:8081
 
 ## 환경설정 (중요)
 ### Backend: `backend/src/main/resources/application.properties`
@@ -56,5 +55,5 @@ Frontend: http://localhost:5173
 - Viewer: 읽기 전용
 - FreeBusy: Busy만 (제목/메모 마스킹)
 
-## 확장성
+## 확장
 - 캘린더 + 가계부
