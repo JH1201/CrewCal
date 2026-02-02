@@ -15,7 +15,8 @@ export default function CalendarDrawerContent(props: DrawerContentComponentProps
     <SafeAreaView style={styles.root} edges={["top", "left", "right", "bottom"]}>
       <ScrollView
         contentContainerStyle={{
-          paddingTop: insets.top,   //  더 여유 있게(짤림 방지)
+          //paddingTop: insets.top,   //  더 여유 있게(짤림 방지)
+          paddingTop: 15,
           paddingBottom: insets.bottom + 16,
           paddingHorizontal: 10,
         }}

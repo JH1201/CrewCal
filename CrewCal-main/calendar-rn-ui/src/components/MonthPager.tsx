@@ -74,7 +74,8 @@ export default function MonthPager({
   const TITLE_H = 14 + 28 + 10; // paddingTop + fontSize + paddingBottom
   const DOW_H = 10 * 2 + 14;    // paddingVertical + text
   const GRID_H = 6 * CELL_H;
-  const ITEM_H = TITLE_H + DOW_H + GRID_H; // Tip 제거됨
+  const GAP = 30;
+  const ITEM_H = TITLE_H + DOW_H + GRID_H + GAP; // Tip 제거됨
 
   const listRef = useRef<FlatList<Date>>(null);
   const didMount = useRef(false);

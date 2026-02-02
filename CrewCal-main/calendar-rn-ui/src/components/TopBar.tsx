@@ -46,8 +46,8 @@ export default function TopBar({
 
         {!isSmall && (
           <View style={styles.right}>
-            <TouchableOpacity style={styles.todayBtn} onPress={onToday}><Text style={styles.todayTxt}>Today</Text></TouchableOpacity>
             <Seg />
+            <TouchableOpacity style={styles.todayBtn} onPress={onToday}><Text style={styles.todayTxt}>Today</Text></TouchableOpacity>
             <TouchableOpacity style={styles.logoutBtn} onPress={onLogout}><Text style={styles.logoutTxt}>Logout</Text></TouchableOpacity>
           </View>
         )}
@@ -57,8 +57,8 @@ export default function TopBar({
       {isSmall && (
         <View style={[styles.row, { marginTop: 8 }]}>
           <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
-            <TouchableOpacity style={styles.todayBtn} onPress={onToday}><Text style={styles.todayTxt}>Today</Text></TouchableOpacity>
             <Seg />
+            <TouchableOpacity style={styles.todayBtn} onPress={onToday}><Text style={styles.todayTxt}>Today</Text></TouchableOpacity>
           </View>
           <TouchableOpacity style={styles.logoutBtn} onPress={onLogout}><Text style={styles.logoutTxt}>Logout</Text></TouchableOpacity>
         </View>
