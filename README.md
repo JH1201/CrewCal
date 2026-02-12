@@ -48,5 +48,3 @@
 # cd /Crewcal/CrewCal-main/calendar-rn-ui
 npx expo start -c
 
-# run
-npm run start
